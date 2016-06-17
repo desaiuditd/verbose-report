@@ -1,0 +1,50 @@
+<template name="appNav">
+
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{{pathFor 'home'}}">
+					verbose-report
+				</a>
+			</div>
+
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+						   aria-haspopup="true" aria-expanded="false">Item 1 <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="{{isActiveRoute 'searchClient'}}"><a href="{{pathFor 'searchClient'}}">Item 2</a></li>
+							<li class="{{isActiveRoute 'createClient'}}"><a href="{{pathFor 'createClient'}}">Item 3</a></li>
+						</ul>
+					</li>
+                    <li class="{{isActiveRoute 'chat'}}"><a href="{{pathFor 'chat'}}">Item 4</a></li>
+                </ul>
+				{{#if currentUser}}
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								{{{currentUserGravatar}}} {{currentUserFullName}} <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="js-logout" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+				{{else}}
+					<div class="account-button navbar-right">
+						{{> atNavButton}}
+					</div>
+				{{/if}}
+			</div>
+
+		</div>
+	</nav>
+
+</template>
