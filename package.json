@@ -5,6 +5,8 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "body-parser": "^1.15.1",
+    "freshbooks": "^1.0.1",
     "meteor-node-stubs": "~0.2.0"
   }
 }

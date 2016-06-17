@@ -6,20 +6,38 @@ timeentry = new Meteor.Collection( 'timeentry' );
 
 Schemas.timeentry = new SimpleSchema(
 	{
-		user_id: {
-			type: String
+		freshbooks_id: {
+			type: String,
+			unique: true
 		},
-		type: {
-			type: String
+		task_name: {
+			type: String,
+			optional: true
 		},
-		query_id: {
-			type: String
+		hours: {
+			type: String,
+			optional: true
 		},
-		document_id: {
-			type: String
+		notes: {
+			type: String,
+			optional: true
 		},
 		timestamp: {
-			type: Date
+			type: Date,
+			optional: true
+		},
+		staff_email: {
+			type: String,
+			optional: true
+		},
+		project_name: {
+			type: String,
+			optional: true
+		},
+		sentToGoogle: {
+			type: Boolean,
+			optional: true,
+			defaultValue: false
 		}
 	}
 );
