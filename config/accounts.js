@@ -4,9 +4,9 @@
 AccountsTemplates.configure(
 	{
 		// Layout Settings
-		defaultLayout: 'layoutMain',
+		defaultLayout: 'tmplLogin',
 		defaultLayoutRegions: {},
-		defaultContentRegion: 'tmpl',
+		defaultContentRegion: 'main',
 
 		// Misc Settings
 		enablePasswordChange: true,

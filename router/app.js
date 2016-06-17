@@ -7,10 +7,11 @@ FlowRouter.route( '/', {
 	action: function(params, queryParams) {
 
 		Tracker.autorun( function () {
-			var data = {};
-			data.queryParams = queryParams;
-
-			BlazeLayout.render( 'layoutMain', { tmpl: 'tmplHome', data: data } );
+			if ( Meteor.user() ) {
+				BlazeLayout.render( 'layoutMain', {tmpl: 'tmplHome'} );
+			} else {
+				FlowRouter.go( '/login' );
+			}
 		} );
 
 	}
@@ -37,8 +38,7 @@ AccountsTemplates.configureRoute( 'resetPwd', {
 } );
 AccountsTemplates.configureRoute( 'signIn', {
 	name: 'signIn',
-	path: '/login',
-	redirect: '/'
+	path: '/login'
 } );
 AccountsTemplates.configureRoute( 'signUp', {
 	name: 'signUp',
