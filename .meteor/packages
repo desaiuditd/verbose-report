@@ -40,3 +40,5 @@ check
 http
 momentjs:moment
 meteorhacks:picker
+rajit:bootstrap3-datepicker
+session

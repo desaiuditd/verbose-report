@@ -7,13 +7,26 @@ FlowRouter.route( '/', {
 	action: function(params, queryParams) {
 
 		Tracker.autorun( function () {
-			if ( Meteor.user() ) {
-				BlazeLayout.render( 'layoutMain', {tmpl: 'tmplHome'} );
-			} else {
-				FlowRouter.go( '/login' );
-			}
+			BlazeLayout.render( 'layoutMain', {tmpl: 'tmplHome'} );
 		} );
 
+	}
+} );
+
+FlowRouter.route( '/sync', {
+	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
+	name: 'sync',
+	action: function ( params, queryParams ) {
+		Tracker.autorun( function () {
+			BlazeLayout.render( 'layoutMain', { tmpl: 'tmplSync' } );
+		} );
+	}
+} );
+
+FlowRouter.route( '/logout', {
+	name: 'logout',
+	action: function ( params, queryParams ) {
+		AccountsTemplates.logout();
 	}
 } );
 

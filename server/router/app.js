@@ -19,15 +19,14 @@ var webhookRoute = Picker.filter(function(req, res) {
 webhookRoute.route( '/freshbooks-webhook', function( params, req, res, next ) {
 
 	console.log("==== req.body ====");
-	console.log(req.body);
-
-	var freshbooksRes = JSON.parse( req.body );
+	var freshbooksRes = req.body;
 	// var freshbooksRes = {
 	// 	user_id: '1',
 	// 	name: 'time_entry.update',
 	// 	object_id: '1059736',
 	// 	system: 'https://incognitech.freshbooks.com'
 	// };
+	console.log(freshbooksRes);
 
 	if ( freshbooksRes ) {
 

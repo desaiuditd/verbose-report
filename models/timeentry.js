@@ -8,7 +8,8 @@ Schemas.timeentry = new SimpleSchema(
 	{
 		freshbooks_id: {
 			type: String,
-			unique: true
+			unique: true,
+			optional: true
 		},
 		task_name: {
 			type: String,
