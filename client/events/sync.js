@@ -13,7 +13,7 @@ Template.tmplSync.events(
 		'click #js-get-logs': function ( event, template ) {
 			var input = $('#date').val() || moment(new Date()).format('YYYY-MM-DD');
 
-			var timeentries = timeentry.find( { timestamp: new Date( input ) } ).fetch();
+			var timeentries = timeentry.find( { timestamp: new Date( input ) }, { sort: { timestamp : 1 } } ).fetch();
 
 			Session.set( 'currentSyncTimeentries', timeentries );
 		},
@@ -23,7 +23,7 @@ Template.tmplSync.events(
 			if ( timeentries ) {
 				var input = $('#date').val() || moment(new Date()).format('YYYY-MM-DD');
 
-				timeentries = timeentry.find( { timestamp: new Date( input ) } ).fetch();
+				var timeentries = timeentry.find( { timestamp: new Date( input ) }, { sort: { timestamp : 1 } } ).fetch();
 			}
 
 			if ( timeentries ) {

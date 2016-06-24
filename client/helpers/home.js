@@ -11,7 +11,7 @@ Template.tmplHome.helpers(
 			if ( user ) {
 				var email = user.emails[0];
 
-				timeentries = timeentry.find({staff_email: email.address}).fetch();
+				timeentries = timeentry.find({staff_email: email.address}, { sort: { timestamp : 1 } }).fetch();
 			}
 
 			return timeentries;
